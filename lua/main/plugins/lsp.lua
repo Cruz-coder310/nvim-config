@@ -31,10 +31,19 @@ return -- LSP + Mason
 			lua_ls = {
 				settings = { Lua = { completion = { callSnippet = "Replace" } } },
 			},
+			emmet_ls = { filetypes = { "html", "css", "javascript", "django", "htmldjango" } },
 		}
 
 		require("mason-tool-installer").setup({
-			ensure_installed = { "pyright", "black", "stylua" },
+			ensure_installed = {
+				"pyright",
+				"black",
+				"stylua",
+				"html",
+				"cssls",
+				"typescript-language-server",
+				"emmet_ls",
+			},
 		})
 
 		require("mason-lspconfig").setup({

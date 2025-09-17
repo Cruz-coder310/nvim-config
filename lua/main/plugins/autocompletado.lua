@@ -48,7 +48,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
-				{ name = "luasnip" },
+				-- { name = "luasnip" },
 			},
 		})
 	end,

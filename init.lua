@@ -33,7 +33,7 @@ require("lazy").setup({
 	require("main.plugins.conform"),
 	require("main.plugins.which-key"),
 	require("main.plugins.autopairs"),
-	require("main.plugins.lint"),
+	-- require("main.plugins.lint"),
 	-- require("main.plugins.extra.markdown"),
 	require("main.plugins.extra.glow"),
 }, {

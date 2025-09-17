@@ -11,10 +11,16 @@ return {
 		},
 	},
 	opts = {
-		format_on_save = true,
+		format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		formatters_by_ft = {
 			python = { "ruff_format" },
 			lua = { "stylua" },
+			["django-html"] = { "djlint" },
+			html = { "djlint" },
+			css = { "prettier" },
+			javascript = { "prettier" },
+			json = { "prettier" },
+			markdown = { "prettier" },
 		},
 	},
 }
