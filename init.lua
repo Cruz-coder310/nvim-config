@@ -31,13 +31,21 @@ require("lazy").setup({
 	require("main.plugins.treesitter"),
 	require("main.plugins.autocompletado"),
 	require("main.plugins.conform"),
-	require("main.plugins.which-key"),
-	require("main.plugins.autopairs"),
+	require("main.plugins.extra.which-key"),
+	require("main.plugins.extra.autopairs"),
+	require("main.plugins.extra.gitsigns"),
+	require("main.plugins.extra.lazygit"),
 	-- require("main.plugins.lint"),
 	-- require("main.plugins.extra.markdown"),
 	require("main.plugins.extra.glow"),
 }, {
 	rocks = {
 		enabled = false,
+	},
+})
+
+vim.filetype.add({
+	pattern = {
+		[".*/templates/.*%.html"] = "htmldjango",
 	},
 })

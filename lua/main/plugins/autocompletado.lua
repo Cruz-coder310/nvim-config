@@ -12,6 +12,11 @@ return {
 		local luasnip = require("luasnip")
 
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
 			mapping = {
 				-- Confirmar selección con Enter
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -48,7 +53,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
-				-- { name = "luasnip" },
+				{ name = "luasnip" },
 			},
 		})
 	end,

@@ -7,7 +7,7 @@ vim.o.showmode = false
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
 end)
-vim.opt.textwidth = 77
+-- vim.opt.textwidth = 77
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true

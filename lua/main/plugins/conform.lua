@@ -15,7 +15,7 @@ return {
 		formatters_by_ft = {
 			python = { "ruff_format" },
 			lua = { "stylua" },
-			["django-html"] = { "djlint" },
+			htmldjango = { "djlint" },
 			html = { "djlint" },
 			css = { "prettier" },
 			javascript = { "prettier" },

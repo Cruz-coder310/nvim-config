@@ -31,7 +31,11 @@ return -- LSP + Mason
 			lua_ls = {
 				settings = { Lua = { completion = { callSnippet = "Replace" } } },
 			},
+			html = { filetypes = { "html", "htmldjango" } },
 			emmet_ls = { filetypes = { "html", "css", "javascript", "django", "htmldjango" } },
+			tailwindcss = {
+				filetypes = { "html", "htmldjango", "css", "javascriptreact", "typescriptreact" },
+			},
 		}
 
 		require("mason-tool-installer").setup({
@@ -43,14 +47,31 @@ return -- LSP + Mason
 				"cssls",
 				"typescript-language-server",
 				"emmet_ls",
+				"tailwindcss",
 			},
 		})
 
 		require("mason-lspconfig").setup({
 			handlers = {
+				-- Configuración genérica
 				function(server)
 					local opts = servers[server] or {}
 					require("lspconfig")[server].setup(opts)
+				end,
+
+				-- Configuración especial para html-ls
+				["html"] = function()
+					require("lspconfig").html.setup({
+						filetypes = { "html", "htmldjango" },
+						init_options = {
+							configurationSection = { "html", "css", "javascript" },
+							embeddedLanguages = {
+								css = true,
+								javascript = true,
+							},
+							provideFormatter = true,
+						},
+					})
 				end,
 			},
 		})
